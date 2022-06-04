@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TNT - shorten your url</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="brand">
+        <h1 class="brand">TNT SHORTNER</h1>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quas
+          quidem, esse obcaecati maiores fuga
+        </p>
+      </div>
+
+      <form method="post" action="/new">
+        <input name="name" placeholder="name" type="text" />
+        <input name="longUrl" placeholder="url" type="text" />
+        <button type="submit">Shrink</button>
+      </form>
+
+      <div class="info">
+        <h3>Recent Added URLs</h3>
+        <table>
+          <tr>
+            <th>NAME</th>
+            <th>LONG URL</th>
+            <th>SHORT URL</th>
+            <th>VISITS</th>
+          </tr>
+
+          <% urls.forEach(url => { %>
+
+          <tr>
+            <td><%= url.name %></td>
+            <td><%= url.longUrl %></td>
+            <td>
+              <a target="_blank" href="<%= url.shortUrl %>"
+                ><%= url.shortUrl %></a
+              >
+            </td>
+            <td><%= url.visits %></td>
+          </tr>
+
+          <% }) %>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
